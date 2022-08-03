@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252"?>
-<MDG.Technology version="1.0"><Documentation id="2" name="RHEASysML" version="1.3" notes="first issue"/><UMLProfiles><UMLProfile profiletype="uml2">
+<MDG.Technology version="1.0"><Documentation id="2" name="RHEASysML" version="1.3" notes="update 1"/><UMLProfiles><UMLProfile profiletype="uml2">
 			<Documentation id="F9454D72-1" name="RHEASysML" version="1.0" notes="RHEASysML Profile"/>
 			<Content>
 				<Stereotypes>
@@ -423,6 +423,12 @@
 						</AppliesTo>
 					</Stereotype>
 					<Stereotype name="Role" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<metarelationships>
+							<metarelationship metaclass="Usage" constraint="RHEASysML::LogicalInterface"/>
+						</metarelationships>
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::LogicalFlow" constraint="RHEASysML::FullPort"/>
+						</stereotypedrelationships>
 						<AppliesTo>
 							<Apply type="Actor"/>
 						</AppliesTo>
@@ -466,6 +472,10 @@
 						</TaggedValues>
 					</Stereotype>
 					<Stereotype name="Service" metatype="Service" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::block" baseStereotypes="SysML1.4::block">
+						<metarelationships>
+							<metarelationship metaclass="Realization" constraint="RHEASysML::LogicalInterface"/>
+							<metarelationship metaclass="Usage" constraint="RHEASysML::LogicalInterface"/>
+						</metarelationships>
 						<TaggedValues>
 							<Tag name="Area" type="String" description="" unit="" values="" default=""/>
 							<Tag name="Owner" type="String" description="" unit="" values="" default=""/>
@@ -674,11 +684,11 @@
 							<Apply type="ToolboxPage"/>
 						</AppliesTo>
 						<TaggedValues>
-							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
 							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
 							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
 							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
 							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Role(UML::Actor)" type="" description="" unit="" values="" default="Role"/>
 							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
 							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
 							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
@@ -783,11 +793,11 @@
 							<Apply type="ToolboxPage"/>
 						</AppliesTo>
 						<TaggedValues>
-							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
 							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
 							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
 							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
 							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Role(UML::Actor)" type="" description="" unit="" values="" default="Role"/>
 							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
 							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
 							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
@@ -819,11 +829,11 @@
 							<Apply type="ToolboxPage"/>
 						</AppliesTo>
 						<TaggedValues>
-							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
 							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
 							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
 							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
 							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Role(UML::Actor)" type="" description="" unit="" values="" default="Role"/>
 							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
 							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
 							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
@@ -868,11 +878,11 @@
 							<Apply type="ToolboxPage"/>
 						</AppliesTo>
 						<TaggedValues>
-							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
 							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
 							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
 							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
 							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Role(UML::Actor)" type="" description="" unit="" values="" default="Role"/>
 							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
 							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
 							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
@@ -991,11 +1001,11 @@
 							<Apply type="ToolboxPage"/>
 						</AppliesTo>
 						<TaggedValues>
-							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
 							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
 							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
 							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
 							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Role(UML::Actor)" type="" description="" unit="" values="" default="Role"/>
 							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
 							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
 							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
@@ -1155,11 +1165,11 @@
 							<Apply type="ToolboxPage"/>
 						</AppliesTo>
 						<TaggedValues>
-							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
 							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
 							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
 							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
 							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Role(UML::Actor)" type="" description="" unit="" values="" default="Role"/>
 							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
 							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
 							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
