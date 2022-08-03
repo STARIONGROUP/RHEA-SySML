@@ -1,0 +1,1224 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<MDG.Technology version="1.0"><Documentation id="2" name="RHEASysML" version="1.3" notes="first issue"/><UMLProfiles><UMLProfile profiletype="uml2">
+			<Documentation id="F9454D72-1" name="RHEASysML" version="1.0" notes="RHEASysML Profile"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Allocate" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::allocate" baseStereotypes="SysML1.4::allocate">
+						<AppliesTo>
+							<Apply type="Abstraction">
+								<Property name="_MeaningBackwards" value="is Allocated by"/>
+								<Property name="_MeaningForwards" value="Allocate"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="AuxiliaryData" notes="" cx="0" cy="0" bgcolor="9498256" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="EOFile" baseStereotypes="EOFile">
+						<metarelationships>
+							<metarelationship metaclass="Nesting" constraint="RHEASysML::AuxiliaryData"/>
+						</metarelationships>
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::Trigger" constraint="RHEASysML::ProcessingTask"/>
+						</stereotypedrelationships>
+						<TaggedValues>
+							<Tag name="FileType" type="enumeration" description="" unit="" values="Auxiliary Data,Level 0,Level 1,Level 2A,RAW,Level 2B,Level 3,Mission Planning,Report" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="AvailabilityRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Availability"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Boundary" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="SysBoundary"/>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Class1" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0"/>
+					<Stereotype name="Class2" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0"/>
+					<Stereotype name="Component" metatype="Component" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::block" baseStereotypes="SysML1.4::block">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::Containment" constraint="RHEASysML::Subsystem"/>
+						</stereotypedrelationships>
+					</Stereotype>
+					<Stereotype name="ConfigurationFile" notes="" cx="0" cy="0" bgcolor="13882323" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="EOFile" baseStereotypes="EOFile"/>
+					<Stereotype name="Contact Point" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Actor"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="Email" type="String" description="" unit="" values="" default=""/>
+							<Tag name="Fax" type="String" description="" unit="" values="" default=""/>
+							<Tag name="Name" type="String" description="" unit="" values="" default=""/>
+							<Tag name="Telephone" type="String" description="" unit="" values="" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Containment" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<metaconstraints>
+							<metaconstraint umlRole="source" constraint="RHEASysML::DataGroup;RHEASysML::LogicalInterface"/>
+						</metaconstraints>
+						<AppliesTo>
+							<Apply type="Aggregation">
+								<Property name="_MeaningBackwards" value="Contained In"/>
+								<Property name="_MeaningForwards" value="Contain"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Coordination" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Dependency">
+								<Property name="_MeaningBackwards" value="Coordinator of"/>
+								<Property name="_MeaningForwards" value="Coordinated By"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Data Set" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::ValueType" baseStereotypes="SysML1.4::ValueType"/>
+					<Stereotype name="DataFlow" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::InterfaceBlock" baseStereotypes="SysML1.4::InterfaceBlock">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::Containment" constraint="RHEASysML::LogicalInterface"/>
+							<stereotypedrelationship stereotype="RHEASysML::Transfer" constraint="SysML1.4::ValueType"/>
+						</stereotypedrelationships>
+						<TaggedValues>
+							<Tag name="File Packaging" type="Classifier:File Packaging" description="" unit="String" values="" default=""/>
+							<Tag name="Objective" type="Classifier:Objective" description="" unit="String" values="" default=""/>
+							<Tag name="Retention Period" type="Classifier:Retention Period" description="" unit="String" values="" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="DataGroup" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::ValueType" baseStereotypes="SysML1.4::ValueType">
+						<TaggedValues>
+							<Tag name="FileType" type="enumeration" description="" unit="" values="Auxiliary Data,Level 0,Level 1,Level 2A,RAW,Level 2B,Level 3,Mission Planning,Report" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Description" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Trace">
+								<Property name="_MeaningBackwards" value="Described In"/>
+								<Property name="_MeaningForwards" value="Describe"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Design Document" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="RHEADoc::ESADocument" baseStereotypes="RHEADoc::ESADocument"/>
+					<Stereotype name="DesignRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Design"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Document" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="StandardProfileL2::Document" baseStereotypes="StandardProfileL2::Document">
+						<TaggedValues>
+							<Tag name="Issue" type="int" description="" unit="" values="" default=""/>
+							<Tag name="IssueDate" type="int" description="" unit="" values="" default=""/>
+							<Tag name="Reference" type="char" description="" unit="" values="" default=""/>
+							<Tag name="Revision" type="int" description="" unit="" values="" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Email" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::ValueType" baseStereotypes="SysML1.4::ValueType"/>
+					<Stereotype name="EOFile" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::ValueType" baseStereotypes="SysML1.4::ValueType">
+						<TaggedValues>
+							<Tag name="_Tag" type="" description="" unit="" values="" default="0"/>
+							<Tag name="Coverage" type="Classifier:Coverage" description="" unit="String" values="" default=""/>
+							<Tag name="File Format" type="Classifier:File Format" description="" unit="String" values="" default=""/>
+							<Tag name="File Generation Frequency" type="Classifier:File Generation Frequency" description="" unit="String" values="" default=""/>
+							<Tag name="File Generation timeliness" type="Classifier:File Generation timeliness" description="" unit="String" values="" default=""/>
+							<Tag name="File Name" type="Classifier:File Name" description="" unit="String" values="" default=""/>
+							<Tag name="File Scope" type="Classifier:File Scope" description="" unit="String" values="" default=""/>
+							<Tag name="Frequency" type="float" description="" unit="" values="" default=""/>
+							<Tag name="FrequencyUnit" type="enumeration" description="" unit="" values="Orbit,Day,Week" default="Day"/>
+							<Tag name="Size" type="float" description="" unit="" values="" default=""/>
+							<Tag name="SizeMargin" type="float" description="" unit="" values="" default="20"/>
+							<Tag name="SizeUnit" type="enumeration" description="" unit="" values="MegaBytes,GigaBytes,Bytes" default="MegaBytes"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="FileFormatSpecification" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="RHEADoc::ESADocument" baseStereotypes="RHEADoc::ESADocument"/>
+					<Stereotype name="FlowPort" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::FlowPort" baseStereotypes="SysML1.4::FlowPort"/>
+					<Stereotype name="FlowProperty" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::FlowProperty" baseStereotypes="SysML1.4::FlowProperty"/>
+					<Stereotype name="FullPort" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::FullPort" baseStereotypes="SysML1.4::FullPort">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::LogicalFlow" constraint="RHEASysML::FullPort"/>
+						</stereotypedrelationships>
+					</Stereotype>
+					<Stereotype name="Function" metatype="Function" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::Satisfy" constraint="RHEASysML::Scenario"/>
+						</stereotypedrelationships>
+						<AppliesTo>
+							<Apply type="Activity">
+								<Property name="isReadOnly" value="false"/>
+								<Property name="isSingleExecution" value=""/>
+								<Property name="parameterName" value=""/>
+								<Property name="postcondition" value=""/>
+								<Property name="precondition" value=""/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="FunctionalRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Functional"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="GenericRequirement" metatype="RH_Requirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::requirement" baseStereotypes="SysML1.4::requirement">
+						<metarelationships>
+							<metarelationship metaclass="Composition" constraint="RHEASysML::GenericRequirement"/>
+							<metarelationship metaclass="Dependency" constraint="RHEASysML::GenericRequirement"/>
+							<metarelationship metaclass="Realization" constraint="RHEASysML::GenericRequirement"/>
+						</metarelationships>
+						<AppliesTo>
+							<Apply type="Requirement">
+								<Property name="_HideUmlLinks" value="true"/>
+								<Property name="_Tag" value="1"/>
+							</Apply>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="Notes" type="Classifier:Notes" description="" unit="String" values="" default=""/>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Generic"/>
+							<Tag name="Verification Method" type="enumeration" description="" unit="" values="T,A,D,D/T,I,M,D/A,D/I,T/A" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Implementation" metatype="Implementation" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Realisation">
+								<Property name="_MeaningBackwards" value="Implemented by"/>
+								<Property name="_MeaningForwards" value="Implement"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Include" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Include">
+								<Property name="_MeaningBackwards" value="Is Included"/>
+								<Property name="_MeaningForwards" value="Include"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Interface" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Interface"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="AuthenticationMethod" type="" description="" unit="" values="" default=""/>
+							<Tag name="Backup Directory" type="Classifier:Backup Directory" description="" unit="String" values="" default=""/>
+							<Tag name="BackupServerPort" type="" description="" unit="" values="" default=""/>
+							<Tag name="ClientPort" type="" description="" unit="" values="" default=""/>
+							<Tag name="Compression" type="enumeration" description="" unit="" values="None" default="None"/>
+							<Tag name="Concurrent file transfer" type="Classifier:Concurrent file transfer" description="" unit="String" values="" default=""/>
+							<Tag name="DataDetection" type="" description="" unit="" values="" default=""/>
+							<Tag name="DataDetection Policy" type="Classifier:DataDetection Policy" description="" unit="String" values="" default=""/>
+							<Tag name="ErrorHandling" type="" description="" unit="" values="" default=""/>
+							<Tag name="FileDeletion" type="" description="" unit="" values="" default=""/>
+							<Tag name="FileDeletion Policy" type="Classifier:FileDeletion Policy" description="" unit="String" values="" default=""/>
+							<Tag name="FileIntegrity" type="Classifier:FileIntegrity" description="" unit="String" values="" default=""/>
+							<Tag name="Nominal Directory" type="Classifier:Nominal Directory" description="" unit="String" values="" default=""/>
+							<Tag name="Parallel Streams" type="Classifier:Parallel Streams" description="" unit="String" values="" default=""/>
+							<Tag name="Password" type="Classifier:Password" description="" unit="String" values="" default=""/>
+							<Tag name="PortNumbers" type="" description="" unit="" values="" default=""/>
+							<Tag name="ServerPort" type="" description="" unit="" values="" default=""/>
+							<Tag name="Temporary Strategy" type="enumeration" description="" unit="" values="Temporary File,Temporary Directory" default=""/>
+							<Tag name="Temporary Strategy Detail" type="int" description="" unit="" values="" default=""/>
+							<Tag name="TransferMethod" type="enumeration" description="" unit="" values="PUSH,PULL,Undefined" default="Undefined"/>
+							<Tag name="TransferMode" type="Classifier:TransferMode" description="" unit="String" values="" default=""/>
+							<Tag name="Username" type="Classifier:Username" description="" unit="String" values="" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="InterfaceControlDocument" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="RHEADoc::ESADocument" baseStereotypes="RHEADoc::ESADocument"/>
+					<Stereotype name="InterfaceRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Interface"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Log File" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::ValueType" baseStereotypes="SysML1.4::ValueType"/>
+					<Stereotype name="LogicalFlow" metatype="LogicalFlow" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="InformationFlow">
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="LogicalInterface" type="int" description="" unit="" values="" default=""/>
+							<Tag name="TransferMethod" type="enumeration" description="" unit="" values="PUSH,PULL,Undefined" default=""/>
+							<Tag name="Type" type="enumeration" description="" unit="" values="SFTP,Email,FTP,FTPS,GridFTP,USB,Undefined" default="Undefined"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="LogicalInterface" notes="" cx="0" cy="0" bgcolor="14804223" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="SysML1.4::InterfaceBlock" baseStereotypes="SysML1.4::InterfaceBlock">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::Provide" constraint="RHEASysML::Interface"/>
+							<stereotypedrelationship stereotype="RHEASysML::Transfer" constraint="SysML1.4::ValueType"/>
+						</stereotypedrelationships>
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="SFTP,Email,FTP,FTPS,GridFTP,USB,Undefined" default="Undefined"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="MaintenanceRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Maintenance"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="ManagementRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Management"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="MandatoryInput" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Usage">
+								<Property name="_MeaningBackwards" value="Is Mandatory Input of"/>
+								<Property name="_MeaningForwards" value="Require as Mandatory Input"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="SelectionPolicy" type="enumeration" description="" unit="" values="ValIntersect,Valcover,LastestValintersect,LatestValcover,LatestValidityClosest" default=""/>
+							<Tag name="T0" type="int" description="" unit="" values="" default=""/>
+							<Tag name="T1" type="int" description="" unit="" values="" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Map" metatype="Map" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Abstraction">
+								<Property name="_MeaningBackwards" value="Map"/>
+								<Property name="_MeaningForwards" value="Map To"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Mission Phase" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="State">
+								<Property name="isComposite" value=""/>
+								<Property name="isOrthogonal" value=""/>
+								<Property name="isSimple" value=""/>
+								<Property name="isSubmachineState" value=""/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="MissionSpecificModel" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="Model" baseStereotypes="Model"/>
+					<Stereotype name="Model" metatype="Model" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Class">
+								<Property name="isActive" value=""/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Operational Phase" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="State">
+								<Property name="isComposite" value=""/>
+								<Property name="isOrthogonal" value=""/>
+								<Property name="isSimple" value=""/>
+								<Property name="isSubmachineState" value=""/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="OperationalRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Operational"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="OptionalInput" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Usage">
+								<Property name="_MeaningBackwards" value="Is Optional Input of"/>
+								<Property name="_MeaningForwards" value="Require as Optional Input"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="SelectionPolicy" type="enumeration" description="" unit="" values="ValIntersect,Valcover,LastestValintersect,LatestValcover,LatestValidityClosest" default=""/>
+							<Tag name="T0" type="int" description="" unit="" values="" default=""/>
+							<Tag name="T1" type="int" description="" unit="" values="" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="PerformanceRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Performance"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="ProcessingTask" metatype="ProcessingTask" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::MandatoryInput" constraint="RHEASysML::AuxiliaryData;RHEASysML::ConfigurationFile;RHEASysML::Product;RHEASysML::RawData"/>
+							<stereotypedrelationship stereotype="RHEASysML::OptionalInput" constraint="RHEASysML::AuxiliaryData;RHEASysML::ConfigurationFile;RHEASysML::Product"/>
+							<stereotypedrelationship stereotype="RHEASysML::Produce" constraint="RHEASysML::AuxiliaryData;RHEASysML::Product;RHEASysML::RawData"/>
+						</stereotypedrelationships>
+						<AppliesTo>
+							<Apply type="Activity">
+								<Property name="isReadOnly" value="false"/>
+								<Property name="isSingleExecution" value=""/>
+								<Property name="parameterName" value=""/>
+								<Property name="postcondition" value=""/>
+								<Property name="precondition" value=""/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Processor" metatype="Processor" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::block" baseStereotypes="SysML1.4::block"/>
+					<Stereotype name="Produce" metatype="Task-Produce" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Abstraction">
+								<Property name="_MeaningBackwards" value="Is Produced By"/>
+								<Property name="_MeaningForwards" value="Produce"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Product" metatype="Proc-Product" notes="" cx="0" cy="0" bgcolor="16760576" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="EOFile" baseStereotypes="EOFile">
+						<metarelationships>
+							<metarelationship metaclass="Dependency" constraint="RHEASysML::Product"/>
+							<metarelationship metaclass="Nesting" constraint="RHEASysML::Product"/>
+						</metarelationships>
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::Trigger" constraint="RHEASysML::ProcessingTask"/>
+						</stereotypedrelationships>
+						<TaggedValues>
+							<Tag name="extension" type="enumeration" description="" unit="" values="EOF,ZIP,NC,HDF" default=""/>
+							<Tag name="format" type="enumeration" description="" unit="" values="XML,SIP,HDF5,NetCDF,HDR/DBL,EEF" default=""/>
+							<Tag name="type" type="enumeration" description="" unit="" values="Auxiliary Data,Level 0,Level 1,Level 2A,RAW,Level 2B,Level 3,Mission Planning,Report" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Provide" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Realisation">
+								<Property name="_MeaningBackwards" value="Provided By"/>
+								<Property name="_MeaningForwards" value="Provides"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Provision" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Realisation">
+								<Property name="_MeaningBackwards" value="Provided By"/>
+								<Property name="_MeaningForwards" value="Provide"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="RawData" notes="" cx="0" cy="0" bgcolor="65535" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="EOFile" baseStereotypes="EOFile">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::Trigger" constraint="RHEASysML::ProcessingTask"/>
+						</stereotypedrelationships>
+					</Stereotype>
+					<Stereotype name="ReferenceModel" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="Model" baseStereotypes="Model"/>
+					<Stereotype name="ReliabilityRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Reliability"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Report" notes="" cx="0" cy="0" bgcolor="15658671" fontcolor="-1" bordercolor="-1" borderwidth="1" hideicon="0" generalizes="EOFile" baseStereotypes="EOFile"/>
+					<Stereotype name="Request" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Usage">
+								<Property name="_MeaningBackwards" value="Requested by"/>
+								<Property name="_MeaningForwards" value="Request"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Responsibility" metatype="RH_Responsibility" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Dependency">
+								<Property name="_MeaningBackwards" value="Under Responsibility of"/>
+								<Property name="_MeaningForwards" value="Responsible For"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Role" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Actor"/>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Satisfy" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<metaconstraints>
+							<metaconstraint umlRole="source" constraint="RHEASysML::Function"/>
+						</metaconstraints>
+						<AppliesTo>
+							<Apply type="Dependency">
+								<Property name="_MeaningBackwards" value="Satisfied By"/>
+								<Property name="_MeaningForwards" value="Satisfy"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="ScalabilityRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Scalability"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Scenario" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="UseCase"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="ID" type="Classifier:ID" description="" unit="String" values="" default=""/>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Nominal,Contingency" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Scenario Document" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="RHEADoc::ESADocument" baseStereotypes="RHEADoc::ESADocument"/>
+					<Stereotype name="SecurityRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Security"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Server" metatype="Server" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::block" baseStereotypes="SysML1.4::block">
+						<TaggedValues>
+							<Tag name="FQDN" type="Classifier:FQDN" description="" unit="String" values="" default=""/>
+							<Tag name="IP Address" type="Classifier:IP Address" description="" unit="String" values="" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Service" metatype="Service" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::block" baseStereotypes="SysML1.4::block">
+						<TaggedValues>
+							<Tag name="Area" type="String" description="" unit="" values="" default=""/>
+							<Tag name="Owner" type="String" description="" unit="" values="" default=""/>
+							<Tag name="Provided by" type="String" description="" unit="" values="" default=""/>
+							<Tag name="Responsible" type="String" description="" unit="" values="" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="ServiceOfServices" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="Service" baseStereotypes="Service"/>
+					<Stereotype name="SizingRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Sizing"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Software" metatype="Software" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::block" baseStereotypes="SysML1.4::block">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Web Portal" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="SpecificationDocument" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="RHEADoc::ESADocument" baseStereotypes="RHEADoc::ESADocument"/>
+					<Stereotype name="String" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0"/>
+					<Stereotype name="Subsystem" metatype="Subsystem" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::block" baseStereotypes="SysML1.4::block">
+						<metarelationships>
+							<metarelationship metaclass="Realization" constraint="RHEASysML::LogicalInterface"/>
+							<metarelationship metaclass="Usage" constraint="RHEASysML::LogicalInterface"/>
+						</metarelationships>
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::Containment" constraint="RHEASysML::Subsystem;RHEASysML::System"/>
+							<stereotypedrelationship stereotype="RHEASysML::LogicalFlow" constraint="RHEASysML::Subsystem;RHEASysML::System"/>
+						</stereotypedrelationships>
+					</Stereotype>
+					<Stereotype name="SysML1.4::Sequence" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" isAbstract="true"/>
+					<Stereotype name="System" metatype="System" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::block" baseStereotypes="SysML1.4::block">
+						<metarelationships>
+							<metarelationship metaclass="Realization" constraint="RHEASysML::LogicalInterface"/>
+							<metarelationship metaclass="Usage" constraint="RHEASysML::LogicalInterface"/>
+						</metarelationships>
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::Containment" constraint="RHEASysML::SystemOfSystem"/>
+							<stereotypedrelationship stereotype="RHEASysML::LogicalFlow" constraint="RHEASysML::Subsystem;RHEASysML::System"/>
+						</stereotypedrelationships>
+					</Stereotype>
+					<Stereotype name="SystemOfSystem" metatype="SystemOfSystem" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::block" baseStereotypes="SysML1.4::block">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Segment,Mission" default=""/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Ticket" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="SysML1.4::ValueType" baseStereotypes="SysML1.4::ValueType"/>
+					<Stereotype name="Transfer" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Usage">
+								<Property name="_MeaningBackwards" value="Transferred By"/>
+								<Property name="_MeaningForwards" value="Transfer"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Transition" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Transition">
+								<Property name="_MeaningBackwards" value="Transition From"/>
+								<Property name="_MeaningForwards" value="Transition To"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+								<Property name="isEffect" value="false"/>
+								<Property name="kind" value=""/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Trigger" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Dependency">
+								<Property name="_MeaningBackwards" value="Is Triggered by"/>
+								<Property name="_MeaningForwards" value="Trigger"/>
+								<Property name="direction" value="Source -&gt; Destination"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="VerificationRequirement" notes="" cx="0" cy="0" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0" generalizes="GenericRequirement" baseStereotypes="GenericRequirement">
+						<TaggedValues>
+							<Tag name="Type" type="enumeration" description="" unit="" values="Functional,Security,Reliability,Design,Interface,Performance,Maintenance,Operational,Scalability,Verification,Management,Availability,Sizing" default="Verification"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel>
+					<Metaclass name="Actor" notes="">
+						<stereotypedrelationships>
+							<stereotypedrelationship stereotype="RHEASysML::Responsibility" constraint="RHEADoc::ESADocument"/>
+						</stereotypedrelationships>
+					</Metaclass>
+				</Metamodel>
+			</Content>
+		</UMLProfile>
+	</UMLProfiles><TaggedValueTypes><RefData version="1.0" exporter="EA.25">
+			<DataSet name="Property Types" table="t_propertytypes" filter="Property='#Property#'"><DataRow><Column name="Property" value="BackupServerPort"/><Column name="Notes" value="Type=RefGUID;&#xA;Stereotypes=RHEASysML::Server"/></DataRow><DataRow><Column name="Property" value="ClientPort"/><Column name="Notes" value="Type=RefGUID;&#xA;Stereotypes=RHEASysML::Server"/></DataRow><DataRow><Column name="Property" value="DataDetection"/><Column name="Notes" value="Type=RefGUID;"/></DataRow><DataRow><Column name="Property" value="ErrorHandling"/><Column name="Notes" value="Type=Memo;"/></DataRow><DataRow><Column name="Property" value="FileDeletion"/><Column name="Notes" value="Type=RefGUID;"/></DataRow><DataRow><Column name="Property" value="FileIntegrity"/><Column name="Notes" value="Type=Memo;"/></DataRow><DataRow><Column name="Property" value="FlowItems"/><Column name="Notes" value="Type=RefGUIDList;"/></DataRow><DataRow><Column name="Property" value="IssueDate"/><Column name="Description" value="IssueDate"/><Column name="Notes" value="Type=Date;"/></DataRow><DataRow><Column name="Property" value="LogicalInterface"/><Column name="Notes" value="Type=RefGUID;&#xA;Stereotypes=RHEASysML::LogicalInterface"/></DataRow><DataRow><Column name="Property" value="PortNumbers"/><Column name="Notes" value="Type=Memo;"/></DataRow><DataRow><Column name="Property" value="ServerPort"/><Column name="Notes" value="Type=RefGUID;&#xA;Stereotypes=RHEASysML::Server"/></DataRow></DataSet></RefData></TaggedValueTypes><DiagramProfile><UMLProfile profiletype="uml2">
+			<Documentation id="FE0A7895-C" name="RHEASysML" version="1.0" notes="RHEASysML"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="RHEASysML State Machine" notes="" cx="90" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Statechart">
+								<Property name="alias" value="State Machine"/>
+								<Property name="toolbox" value="RHEASysML State Machine"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="RHEASysML Use Cases" notes="" cx="90" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Use Case">
+								<Property name="alias" value="Use Cases"/>
+								<Property name="toolbox" value="RHEASysML Use Cases"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Requirement " notes="" cx="90" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Logical">
+								<Property name="alias" value="Requirement Diagram"/>
+								<Property name="toolbox" value="RHEASysML Requirement"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="ProcessingWorkflow" notes="" cx="111" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Activity">
+								<Property name="alias" value="Processing Workflow"/>
+								<Property name="toolbox" value="RHEASysML Processing WorkFlow"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Requirement Allocation" notes="" cx="90" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Logical">
+								<Property name="toolbox" value="RHEASysML Requirement Allocation"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="Functional Data  Flow" notes="" cx="90" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Activity">
+								<Property name="toolbox" value="RHEASysML Functional Data Flow"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="LogicalInterface" notes="" cx="90" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Logical">
+								<Property name="toolbox" value="RHEASysML Logical Interface"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="InterfaceDetail" notes="" cx="90" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Logical">
+								<Property name="toolbox" value="RHEASysML Interface Detail"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="LogicalDecomposition" notes="" cx="114" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Logical">
+								<Property name="toolbox" value="RHEASysML Logical Decomposition"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="LogicalBehaviour" notes="" cx="90" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Activity">
+								<Property name="toolbox" value="RHEASysML Logical Behavoir"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="FunctionalDecomposition" notes="" cx="128" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Activity">
+								<Property name="toolbox" value="RHEASysML Functional Decomposition"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="PhysicalDecomposition" notes="" cx="119" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Logical">
+								<Property name="toolbox" value="RHEASysML PhysicalDecomposition"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+					<Stereotype name="InterfaceDefinition" notes="" cx="103" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="Diagram_Logical">
+								<Property name="toolbox" value="RHEASysML InterfaceDefinition"/>
+							</Apply>
+						</AppliesTo>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+	</DiagramProfile><UIToolboxes><UMLProfile profiletype="uml2">
+			<Documentation id="99865BE9-F" name="RHEASysML Block Definition" version="1.0" notes="RHEASysML Block Definition Toolbox"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Logical Elements" notes="" cx="387" cy="178" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
+							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
+							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
+							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
+							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
+							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
+							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
+							<Tag name="RHEASysML::System" type="" description="" unit="" values="" default="System"/>
+							<Tag name="RHEASysML::SystemOfSystem" type="" description="" unit="" values="" default="SystemOfSystem"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="RHEASysML Documents" notes="" cx="345" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEADoc::ESADocument" type="" description="" unit="" values="" default="ESA Document"/>
+							<Tag name="RHEASysML::FileFormatSpecification" type="" description="" unit="" values="" default="FileFormat"/>
+							<Tag name="RHEASysML::InterfaceControlDocument" type="" description="" unit="" values="" default="Interface"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="RHEASysML Relationships" notes="" cx="345" cy="179" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEADoc::Describe" type="" description="" unit="" values="" default="Description"/>
+							<Tag name="RHEASysML::Allocate(UML::Abstraction)" type="" description="" unit="" values="" default="Allocate"/>
+							<Tag name="RHEASysML::Containment(UML::Aggregation)" type="" description="" unit="" values="" default="Containment"/>
+							<Tag name="RHEASysML::Coordination(UML::Dependency)" type="" description="" unit="" values="" default="Coordinate"/>
+							<Tag name="RHEASysML::Implementation(UML::Realization)" type="" description="" unit="" values="" default="Implement"/>
+							<Tag name="RHEASysML::LogicalFlow(UML::InformationFlow)" type="" description="" unit="" values="" default="LogicalFlow"/>
+							<Tag name="RHEASysML::Map(UML::Abstraction)" type="" description="" unit="" values="" default="Map"/>
+							<Tag name="RHEASysML::Provision(UML::Realization)" type="" description="" unit="" values="" default="Provision"/>
+							<Tag name="RHEASysML::Request(UML::Usage)" type="" description="" unit="" values="" default="Request"/>
+							<Tag name="RHEASysML::Responsibility(UML::Dependency)" type="" description="" unit="" values="" default="Responsibility"/>
+							<Tag name="RHEASysML::Transfer(UML::Usage)" type="" description="" unit="" values="" default="Transfer"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="RHEASysML Data" notes="" cx="343" cy="166" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::AuxiliaryData" type="" description="" unit="" values="" default="Auxiliary"/>
+							<Tag name="RHEASysML::Configuration File" type="" description="" unit="" values="" default="Configuration"/>
+							<Tag name="RHEASysML::Data Set" type="" description="" unit="" values="" default="Data Set"/>
+							<Tag name="RHEASysML::DataGroup" type="" description="" unit="" values="" default="DataGroup"/>
+							<Tag name="RHEASysML::Email" type="" description="" unit="" values="" default="Email"/>
+							<Tag name="RHEASysML::Log File" type="" description="" unit="" values="" default="Log"/>
+							<Tag name="RHEASysML::Product" type="" description="" unit="" values="" default="Product"/>
+							<Tag name="RHEASysML::RawData" type="" description="" unit="" values="" default="Raw Data"/>
+							<Tag name="RHEASysML::Report" type="" description="" unit="" values="" default="Report"/>
+							<Tag name="RHEASysML::Ticket" type="" description="" unit="" values="" default="Ticket"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="F53CCA6A-D" name="RHEASysML Use Cases" version="" notes="RHEASysML Use Cases Toolbox"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="RHEASysML Use Cases Elements" notes="" cx="262" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Boundary(UML::Boundary)" type="" description="" unit="" values="" default="Boundary"/>
+							<Tag name="RHEASysML::Function" type="" description="" unit="" values="" default="Function"/>
+							<Tag name="RHEASysML::Scenario(UML::UseCase)" type="" description="" unit="" values="" default="Scenario"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="RHEASysML Use Cases Relationships" notes="Use Cases Relationships" cx="287" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Include(UML::UCInclude)" type="" description="" unit="" values="" default="Include"/>
+							<Tag name="RHEASysML::Satisfy(UML::Dependency)" type="" description="" unit="" values="" default="Satisfy"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="AA572F9A-2" name="RHEASysML Functional Data Flow" version="1.0" notes="RHEASysML Functional Data Flow"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Functional Elements" notes="" cx="220" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Function(UML::Activity)" type="" description="" unit="" values="" default="Function"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Logical Elements" notes="" cx="286" cy="187" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
+							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
+							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
+							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
+							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
+							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
+							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
+							<Tag name="RHEASysML::System" type="" description="" unit="" values="" default="System"/>
+							<Tag name="RHEASysML::SystemOfSystem" type="" description="" unit="" values="" default="SystemOfSystem"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Functional Relation" notes="" cx="252" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Containment(UML::Aggregation)" type="" description="" unit="" values="" default="Contain"/>
+							<Tag name="UML::InformationFlow" type="" description="" unit="" values="" default="InformationFlow"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="E65CAE1E-D" name="RHEASysML Logical Decomposition" version="1.0" notes="RHEASysML Logical Decomposition"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Logical Elements" notes="" cx="286" cy="187" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
+							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
+							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
+							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
+							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
+							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
+							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
+							<Tag name="RHEASysML::System" type="" description="" unit="" values="" default="System"/>
+							<Tag name="RHEASysML::SystemOfSystem" type="" description="" unit="" values="" default="SystemOfSystem"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Functional Relation" notes="" cx="252" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Containment(UML::Aggregation)" type="" description="" unit="" values="" default="Contain"/>
+							<Tag name="UML::InformationFlow" type="" description="" unit="" values="" default="InformationFlow"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="96158EB7-6" name="RHEASysML Logical Interface" version="" notes="RHEASysML Logical Interface"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Logical Interface" notes="" cx="280" cy="114" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Containment(UML::Aggregation)" type="" description="" unit="" values="" default="Containment"/>
+							<Tag name="RHEASysML::DataFlow" type="" description="" unit="" values="" default="DataFlow"/>
+							<Tag name="RHEASysML::LogicalFlow(UML::InformationFlow)" type="" description="" unit="" values="" default="LogicalFlow"/>
+							<Tag name="RHEASysML::LogicalInterface" type="" description="" unit="" values="" default="Logical Interface"/>
+							<Tag name="UML::Realization" type="" description="" unit="" values="" default="Realization"/>
+							<Tag name="UML::Usage" type="" description="" unit="" values="" default="Usage"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Logical Elements" notes="" cx="247" cy="166" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
+							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
+							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
+							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
+							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
+							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
+							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
+							<Tag name="RHEASysML::System" type="" description="" unit="" values="" default="System"/>
+							<Tag name="RHEASysML::SystemOfSystem" type="" description="" unit="" values="" default="SystemOfSystem"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="13B2A98A-E" name="RHEASysML Functional Decomposition" version="1.0" notes="RHEASysML Functional Decomposition"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Functional Elements" notes="" cx="220" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Function(UML::Activity)" type="" description="" unit="" values="" default="Function"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="DF8797D2-7" name="RHEASysML InterfaceDefinition" version="1.0" notes="RHEASysML InterfaceDefinition"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="InterfaceDefinition" notes="" cx="230" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Interface(UML::Interface)" type="" description="" unit="" values="" default="Interface"/>
+							<Tag name="RHEASysML::LogicalInterface" type="" description="" unit="" values="" default="Logical Interface"/>
+							<Tag name="RHEASysML::Provide(UML::Realization)" type="" description="" unit="" values="" default="Provide"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="FC7C4D49-F" name="RHEASysML Interface Detail" version="1.0" notes="RHEASysML Interface Detail"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Interface Detail Diagram" notes="" cx="213" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Transfer(UML::Usage)" type="" description="" unit="" values="" default="Transfer"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Document" notes="" cx="264" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEADoc::Describe" type="" description="" unit="" values="" default="Describe"/>
+							<Tag name="RHEASysML::InterfaceControlDocument" type="" description="" unit="" values="" default="Interface Control Document"/>
+							<Tag name="RHEASysML::SpecificationDocument" type="" description="" unit="" values="" default="Specification Document"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="RHEASysML Data" notes="" cx="283" cy="166" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::AuxiliaryData" type="" description="" unit="" values="" default="Auxiliary"/>
+							<Tag name="RHEASysML::Configuration File" type="" description="" unit="" values="" default="Configuration"/>
+							<Tag name="RHEASysML::Data Set" type="" description="" unit="" values="" default="Data Set"/>
+							<Tag name="RHEASysML::DataGroup" type="" description="" unit="" values="" default="DataGroup"/>
+							<Tag name="RHEASysML::Email" type="" description="" unit="" values="" default="Email"/>
+							<Tag name="RHEASysML::Log File" type="" description="" unit="" values="" default="Log"/>
+							<Tag name="RHEASysML::Product" type="" description="" unit="" values="" default="Product"/>
+							<Tag name="RHEASysML::RawData" type="" description="" unit="" values="" default="Raw Data"/>
+							<Tag name="RHEASysML::Report" type="" description="" unit="" values="" default="Report"/>
+							<Tag name="RHEASysML::Ticket" type="" description="" unit="" values="" default="Ticket"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Logical Interface" notes="" cx="280" cy="114" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Containment(UML::Aggregation)" type="" description="" unit="" values="" default="Containment"/>
+							<Tag name="RHEASysML::DataFlow" type="" description="" unit="" values="" default="DataFlow"/>
+							<Tag name="RHEASysML::LogicalFlow(UML::InformationFlow)" type="" description="" unit="" values="" default="LogicalFlow"/>
+							<Tag name="RHEASysML::LogicalInterface" type="" description="" unit="" values="" default="Logical Interface"/>
+							<Tag name="UML::Realization" type="" description="" unit="" values="" default="Realization"/>
+							<Tag name="UML::Usage" type="" description="" unit="" values="" default="Usage"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="575F539B-5" name="RHEASysML Logical Behavoir" version="1.0" notes="RHEASysML Logical Behavoir"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Logical Elements" notes="" cx="247" cy="166" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
+							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
+							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
+							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
+							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
+							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
+							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
+							<Tag name="RHEASysML::System" type="" description="" unit="" values="" default="System"/>
+							<Tag name="RHEASysML::SystemOfSystem" type="" description="" unit="" values="" default="SystemOfSystem"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="6760F8A1-0" name="RHEASysML PhysicalDecomposition" version="1.0" notes="RHEASysML PhysicalDecomposition"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Physical Elements" notes="" cx="194" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Component" type="" description="" unit="" values="" default="Component"/>
+							<Tag name="RHEASysML::Server(UML::Class)" type="" description="" unit="" values="" default="Server"/>
+							<Tag name="RHEASysML::Software" type="" description="" unit="" values="" default="Software"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="34ECE0F2-5" name="RHEASysML Processing Workflow" version="1.0" notes="first"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Processing Elements" notes="" cx="287" cy="114" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::AuxiliaryData" type="" description="" unit="" values="" default="Auxiliary Data"/>
+							<Tag name="RHEASysML::ConfigurationFile" type="" description="" unit="" values="" default="Configuration File"/>
+							<Tag name="RHEASysML::ProcessingTask(UML::Activity)" type="" description="" unit="" values="" default="ProcessingTask"/>
+							<Tag name="RHEASysML::Product" type="" description="" unit="" values="" default="Product"/>
+							<Tag name="RHEASysML::RawData" type="" description="" unit="" values="" default="Raw Data"/>
+							<Tag name="RHEASysML::Report" type="" description="" unit="" values="" default="Report"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Processing Relation" notes="" cx="281" cy="88" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::MandatoryInput(UML::Usage)" type="" description="" unit="" values="" default="Mandatory Input"/>
+							<Tag name="RHEASysML::OptionalInput(UML::Usage)" type="" description="" unit="" values="" default="Optional Input"/>
+							<Tag name="RHEASysML::Produce(UML::Abstraction)" type="" description="" unit="" values="" default="Produce"/>
+							<Tag name="RHEASysML::Trigger(UML::Dependency)" type="" description="" unit="" values="" default="Trigger"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="206F6923-6" name="RHEASysML Requirement" version="1.0" notes="RHEASysML Toolbox Requirement"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Requirements Management" notes="" cx="330" cy="218" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::AvailabilityRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Availability"/>
+							<Tag name="RHEASysML::DesignRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Design"/>
+							<Tag name="RHEASysML::FunctionalRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Functional"/>
+							<Tag name="RHEASysML::GenericRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Generic"/>
+							<Tag name="RHEASysML::InterfaceRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Interface"/>
+							<Tag name="RHEASysML::MaintenanceRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Maintenance"/>
+							<Tag name="RHEASysML::ManagementRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Management"/>
+							<Tag name="RHEASysML::OperationalRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Operation"/>
+							<Tag name="RHEASysML::PerformanceRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Performance"/>
+							<Tag name="RHEASysML::ReliabilityRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Reliability"/>
+							<Tag name="RHEASysML::ScalabilityRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Scalability"/>
+							<Tag name="RHEASysML::SecurityRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Security"/>
+							<Tag name="RHEASysML::SizingRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Sizing"/>
+							<Tag name="RHEASysML::VerificationRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Verification and Validation"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Requirement Relation" notes="" cx="222" cy="114" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="SysML1.4::deriveReqt" type="" description="" unit="" values="" default="Derive"/>
+							<Tag name="SysML1.4::satisfy" type="" description="" unit="" values="" default="Satisfy"/>
+							<Tag name="UML::Composition" type="" description="" unit="" values="" default="Composition"/>
+							<Tag name="UML::Dependency" type="" description="" unit="" values="" default="Dependency"/>
+							<Tag name="UML::Realization" type="" description="" unit="" values="" default="Realization"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Document" notes="" cx="264" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEADoc::Describe" type="" description="" unit="" values="" default="Describe"/>
+							<Tag name="RHEASysML::InterfaceControlDocument" type="" description="" unit="" values="" default="Interface Control Document"/>
+							<Tag name="RHEASysML::SpecificationDocument" type="" description="" unit="" values="" default="Specification Document"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="F4D3706D-E" name="RHEASysML Requirement Allocation" version="1.0" notes="RHEASysML Requirement Allocation"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="Requirement Relation" notes="" cx="222" cy="114" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="SysML1.4::deriveReqt" type="" description="" unit="" values="" default="Derive"/>
+							<Tag name="SysML1.4::satisfy" type="" description="" unit="" values="" default="Satisfy"/>
+							<Tag name="UML::Composition" type="" description="" unit="" values="" default="Composition"/>
+							<Tag name="UML::Dependency" type="" description="" unit="" values="" default="Dependency"/>
+							<Tag name="UML::Realization" type="" description="" unit="" values="" default="Realization"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Document" notes="" cx="264" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEADoc::Describe" type="" description="" unit="" values="" default="Describe"/>
+							<Tag name="RHEASysML::InterfaceControlDocument" type="" description="" unit="" values="" default="Interface Control Document"/>
+							<Tag name="RHEASysML::SpecificationDocument" type="" description="" unit="" values="" default="Specification Document"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Functional Elements" notes="" cx="220" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Function(UML::Activity)" type="" description="" unit="" values="" default="Function"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Logical Elements" notes="" cx="247" cy="166" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Contact Point(UML::Actor)" type="" description="" unit="" values="" default="Contact Point"/>
+							<Tag name="RHEASysML::FlowProperty(UML::Part)" type="" description="" unit="" values="" default="FlowProperty"/>
+							<Tag name="RHEASysML::FullPort(UML::Port)" type="" description="" unit="" values="" default="FullPort"/>
+							<Tag name="RHEASysML::Processor(UML::Class)" type="" description="" unit="" values="" default="Processor"/>
+							<Tag name="RHEASysML::ProxyPort(UML::Port)" type="" description="" unit="" values="" default="ProxyPort"/>
+							<Tag name="RHEASysML::Service" type="" description="" unit="" values="" default="Service"/>
+							<Tag name="RHEASysML::ServiceOfServices" type="" description="" unit="" values="" default="ServiceOfServices"/>
+							<Tag name="RHEASysML::SubSystem" type="" description="" unit="" values="" default="SubSystem"/>
+							<Tag name="RHEASysML::System" type="" description="" unit="" values="" default="System"/>
+							<Tag name="RHEASysML::SystemOfSystem" type="" description="" unit="" values="" default="SystemOfSystem"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="Requirements Management" notes="" cx="330" cy="218" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::AvailabilityRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Availability"/>
+							<Tag name="RHEASysML::DesignRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Design"/>
+							<Tag name="RHEASysML::FunctionalRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Functional"/>
+							<Tag name="RHEASysML::GenericRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Generic"/>
+							<Tag name="RHEASysML::InterfaceRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Interface"/>
+							<Tag name="RHEASysML::MaintenanceRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Maintenance"/>
+							<Tag name="RHEASysML::ManagementRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Management"/>
+							<Tag name="RHEASysML::OperationalRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Operation"/>
+							<Tag name="RHEASysML::PerformanceRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Performance"/>
+							<Tag name="RHEASysML::ReliabilityRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Reliability"/>
+							<Tag name="RHEASysML::ScalabilityRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Scalability"/>
+							<Tag name="RHEASysML::SecurityRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Security"/>
+							<Tag name="RHEASysML::SizingRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Sizing"/>
+							<Tag name="RHEASysML::VerificationRequirement(UML::Requirement)" type="" description="" unit="" values="" default="Verification and Validation"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+		<UMLProfile profiletype="uml2">
+			<Documentation id="58373681-F" name="RHEASysML State Machine" version="1.0" notes="RHEASysML State Machine Toolbox"/>
+			<Content>
+				<Stereotypes>
+					<Stereotype name="RHEASysML State Machine Elements" notes="" cx="330" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Mission Phase(UML::State)" type="" description="" unit="" values="" default="Mission Phase"/>
+							<Tag name="RHEASysML::Operational Phase(UML::State)" type="" description="" unit="" values="" default="Operational Phase"/>
+						</TaggedValues>
+					</Stereotype>
+					<Stereotype name="RHEASysML State Machine Relationship" notes="" cx="265" cy="70" bgcolor="-1" fontcolor="-1" bordercolor="-1" borderwidth="-1" hideicon="0">
+						<AppliesTo>
+							<Apply type="ToolboxPage"/>
+						</AppliesTo>
+						<TaggedValues>
+							<Tag name="RHEASysML::Transition(UML::Transition)" type="" description="" unit="" values="" default="Transition"/>
+						</TaggedValues>
+					</Stereotype>
+				</Stereotypes>
+				<TaggedValueTypes/>
+				<ViewDefinitions/>
+				<Metamodel/>
+			</Content>
+		</UMLProfile>
+	</UIToolboxes></MDG.Technology>
